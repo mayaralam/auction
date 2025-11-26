@@ -30,11 +30,17 @@ export default function Register() {
           className="w-screen h-screen bg-cover bg-center flex items-center justify-center "
           style={{ backgroundImage: `url(${bg})` }}
         >
+
+
+
+
      <Formik
           initialValues={{ email: "", password: "", username: ""}}
           onSubmit={handleSubmit}
           validationSchema={validationSchema}
-        > <Form className="flex flex-col gap-4  bg-opacity-50 p-10 rounded-lg  bg-black/30 text-white w-80 sm:w-96">
+        >
+           {() => (
+           <Form className="flex flex-col gap-4  bg-opacity-50 p-10 rounded-lg  bg-black/30 text-white w-80 sm:w-96">
              <div className="flex flex-col items-center text-center gap-3">
               <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -166,6 +172,7 @@ export default function Register() {
               </a>
             </div>
           </Form>
+            )}
         </Formik>
       </div>
       </>
