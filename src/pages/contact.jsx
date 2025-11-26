@@ -1,7 +1,12 @@
 import Nav from "../components/nav";
 import contacthead from "../assets/contacthead.png";
 import Footer from "../components/footer";
+import { Toaster, toast } from "react-hot-toast";
 export default function contact() {
+   const handleSubmit = (event) => {
+    event.preventDefault();
+    toast.success("Your bid has been received and you'll be contacted.");
+  };
   const contacts = [
     {
       title: "Phone",
@@ -149,6 +154,7 @@ export default function contact() {
   return (
     <>
       <Nav />
+      <Toaster position="top-center" />
       <div
         className="h-80 bg-cover bg-center"
         style={{ backgroundImage: `url(${contacthead})` }}
@@ -219,7 +225,7 @@ export default function contact() {
             possible.
           </p>
 
-          <form className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div className="flex items-center justify-between gap-8">
               <div>
                 <label className="block text-sm font-medium text-gray-700">
@@ -299,7 +305,7 @@ export default function contact() {
 
             <button
               type="submit"
-              className="flex items-center gap-2 bg-pink-500 text-white px-6 py-3 rounded-md hover:bg-pink-600 transition"
+              className="cursor-pointer flex items-center gap-2 bg-pink-500 text-white px-6 py-3 rounded-md hover:bg-pink-600 transition"
             >
               <span>Send Message</span>
               <svg
